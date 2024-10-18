@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 5th Anniversary</title>
+    <style>
+      body {
+        font-family: "Georgia", serif;
+        background-color: #ffe4e6; /* Light pink background */
+        background-image: url("./assets/christinyohanes3.jpeg");
+        background-size: cover; /* Ensures image covers the screen without repeating */
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden; /* Prevents scrolling */
+        position: relative;
+      }
+
+      /* Card Container */
+      .card-container {
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 450px;
+        height: 350px;
+        perspective: 1000px;
+      }
+
+      /* Actual Card */
+      .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+        cursor: pointer;
+      }
+
+      .card.open {
+        transform: rotateY(-180deg);
+      }
+
+      /* Front Side */
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        backface-visibility: hidden;
+      }
+
+      .card-front {
+        background-color: #ff6f91; /* Bright pink */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+
+      /* Back Side */
+      .card-back {
+        background-color: white;
+        color: #333;
+        transform: rotateY(180deg);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .card-back .message {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .play-btn {
+        background-color: #ff6f91; /* Bright pink for button */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .play-btn:hover {
+        background-color: #ff3d71; /* Darker pink on hover */
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #ff6f91; /* Pink footer */
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Flower Animation */
+      .flower {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-image: url("./assets/pink-flower-sakura-free-png.webp"); /* Flower image */
+        background-size: cover;
+        animation: fall 5s linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10%;
+          opacity: 1;
+        }
+        100% {
+          top: 110%;
+          opacity: 0;
+        }
+      }
+
+      /* Randomizing animation for each flower */
+      .flower:nth-child(2n) {
+        animation-duration: 7s;
+      }
+      .flower:nth-child(3n) {
+        animation-duration: 6s;
+      }
+      .flower:nth-child(4n) {
+        animation-duration: 8s;
+      }
+      .flower:nth-child(5n) {
+        animation-duration: 9s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flower elements -->
+    <div class="flower" style="left: 10%"></div>
+    <div class="flower" style="left: 20%"></div>
+    <div class="flower" style="left: 30%"></div>
+    <div class="flower" style="left: 40%"></div>
+    <div class="flower" style="left: 50%"></div>
+    <div class="flower" style="left: 60%"></div>
+    <div class="flower" style="left: 70%"></div>
+    <div class="flower" style="left: 80%"></div>
+    <div class="flower" style="left: 90%"></div>
+
+    <!-- Card Container -->
+    <div class="card-container" onclick="toggleCard()">
+      <div class="card" id="anniversaryCard">
+        <!-- Front Side of the Card -->
+        <div class="card-front">
+          <p>Happy 5th Anniversary, Yohannes!</p>
+        </div>
+
+        <!-- Back Side of the Card -->
+        <div class="card-back">
+          <p class="message">
+            Dear Yohannes Ruhupatty,<br /><br />
+            I am so deeply grateful for every
+            moment we've shared, for the love that has grown, and for the
+            journey we have embarked upon together. Every day with you is a
+            blessing, and I am constantly reminded of how incredibly fortunate I
+            am that God brought us together. Here's to more beautiful years
+            ahead, filled with love, laughter, and countless blessings. Thank
+            you for being my partner, my confidant, and my greatest love. I hope
+            you take a moment to listen to this song—it's a prayer and a message
+            from my heart to yours.
+          </p>
+          <button class="play-btn" onclick="redirectToYouTube(event)">
+            Play Our Song
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>With Love, Christina Hariadi</p>
+    </footer>
+
+    <script>
+      // Function to toggle card opening/closing
+      function toggleCard() {
+        var card = document.getElementById("anniversaryCard");
+        card.classList.toggle("open");
+      }
+
+      // Function to redirect to YouTube
+      function redirectToYouTube(event) {
+        event.stopPropagation(); // Prevent the card from closing when the button is clicked
+        window.location.href = "https://www.youtube.com/watch?v=Wgt-v5GHVFc"; // Redirect to YouTube video
+      }
+    </script>
+  </body>
+</html>
